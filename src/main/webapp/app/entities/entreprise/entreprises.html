@@ -1,0 +1,70 @@
+<div>
+    <h2>Entreprises</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="entreprise.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Entreprise
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nom"><span>Nom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="siret"><span>Siret</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="telephone"><span>Telephone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mail"><span>Mail</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="adresse.id"><span>Adresse</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entreprise in vm.entreprises track by entreprise.id">
+                    <td><a ui-sref="entreprise-detail({id:entreprise.id})">{{entreprise.id}}</a></td>
+                    <td>{{entreprise.nom}}</td>
+                    <td>{{entreprise.siret}}</td>
+                    <td>{{entreprise.telephone}}</td>
+                    <td>{{entreprise.mail}}</td>
+                    <td>
+                        <a ui-sref="adresse-detail({id:entreprise.adresse.id})">{{entreprise.adresse.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="entreprise-detail({id:entreprise.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="entreprise.edit({id:entreprise.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="entreprise.delete({id:entreprise.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
