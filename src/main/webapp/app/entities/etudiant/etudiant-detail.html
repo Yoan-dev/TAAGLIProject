@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Etudiant</span> {{vm.etudiant.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nom</span></dt>
+        <dd>
+            <span>{{vm.etudiant.nom}}</span>
+        </dd>
+        <dt><span>Prenom</span></dt>
+        <dd>
+            <span>{{vm.etudiant.prenom}}</span>
+        </dd>
+        <dt><span>Numero Etu</span></dt>
+        <dd>
+            <span>{{vm.etudiant.numeroEtu}}</span>
+        </dd>
+        <dt><span>Telephone</span></dt>
+        <dd>
+            <span>{{vm.etudiant.telephone}}</span>
+        </dd>
+        <dt><span>Mail</span></dt>
+        <dd>
+            <span>{{vm.etudiant.mail}}</span>
+        </dd>
+        <dt><span>Date De Naissance</span></dt>
+        <dd>
+            <span>{{vm.etudiant.dateDeNaissance | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Filiere</span></dt>
+        <dd>
+            <a ui-sref="filiere-detail({id:vm.etudiant.filiere.id})">{{vm.etudiant.filiere.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="etudiant-detail.edit({id:vm.etudiant.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
