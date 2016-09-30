@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Responsable</span> {{vm.responsable.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nom</span></dt>
+        <dd>
+            <span>{{vm.responsable.nom}}</span>
+        </dd>
+        <dt><span>Prenom</span></dt>
+        <dd>
+            <span>{{vm.responsable.prenom}}</span>
+        </dd>
+        <dt><span>Poste</span></dt>
+        <dd>
+            <span>{{vm.responsable.poste}}</span>
+        </dd>
+        <dt><span>Telephone</span></dt>
+        <dd>
+            <span>{{vm.responsable.telephone}}</span>
+        </dd>
+        <dt><span>Mail</span></dt>
+        <dd>
+            <span>{{vm.responsable.mail}}</span>
+        </dd>
+        <dt><span>Entreprise</span></dt>
+        <dd>
+            <a ui-sref="entreprise-detail({id:vm.responsable.entreprise.id})">{{vm.responsable.entreprise.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="responsable-detail.edit({id:vm.responsable.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
