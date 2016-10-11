@@ -13,7 +13,8 @@
         vm.entreprise = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.adresses = Adresse.query({filter: 'entreprise-is-null'});
+        vm.adresses = Adresse.query();
+    /*  vm.adresses = Adresse.query({filter: 'entreprise-is-null'});
         $q.all([vm.entreprise.$promise, vm.adresses.$promise]).then(function() {
             if (!vm.entreprise.adresse || !vm.entreprise.adresse.id) {
                 return $q.reject();
@@ -21,7 +22,7 @@
             return Adresse.get({id : vm.entreprise.adresse.id}).$promise;
         }).then(function(adresse) {
             vm.adresses.push(adresse);
-        });
+        });*/
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

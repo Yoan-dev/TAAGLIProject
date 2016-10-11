@@ -13,7 +13,8 @@
         vm.filiere = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.enseignants = Enseignant.query({filter: 'filiere-is-null'});
+        vm.enseignants = Enseignant.query();
+        /*vm.enseignants = Enseignant.query({filter: 'filiere-is-null'});
         $q.all([vm.filiere.$promise, vm.enseignants.$promise]).then(function() {
             if (!vm.filiere.enseignant || !vm.filiere.enseignant.id) {
                 return $q.reject();
@@ -21,7 +22,7 @@
             return Enseignant.get({id : vm.filiere.enseignant.id}).$promise;
         }).then(function(enseignant) {
             vm.enseignants.push(enseignant);
-        });
+        });/*
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
