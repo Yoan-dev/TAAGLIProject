@@ -29,7 +29,7 @@
                     <td><a ui-sref="filiere-detail({id:filiere.id})">{{filiere.id}}</a></td>
                     <td>{{filiere.nom}}</td>
                     <td>
-                        <a ui-sref="enseignant-detail({id:filiere.enseignant.id})">{{filiere.enseignant.id}}</a>
+                        <a ui-sref="enseignant-detail({id:filiere.enseignant.id})">{{filiere.enseignant.prenom + ' ' + filiere.enseignant.nom}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

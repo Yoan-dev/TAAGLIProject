@@ -38,22 +38,22 @@
                         <td>{{stage.dateDebut | date:'mediumDate'}}</td>
                         <td>{{stage.dateFin | date:'mediumDate'}}</td>
                     <td>
-                        <a ui-sref="adresse-detail({id:stage.adresse.id})">{{stage.adresse.id}}</a>
+                        <a ui-sref="adresse-detail({id:stage.adresse.id})">{{stage.adresse.numero + ' ' + stage.adresse.libelle + ', ' + stage.adresse.codePostal + ' ' + stage.adresse.ville}}</a>
                     </td>
                     <td>
-                        <a ui-sref="entreprise-detail({id:stage.entreprise.id})">{{stage.entreprise.id}}</a>
+                        <a ui-sref="entreprise-detail({id:stage.entreprise.id})">{{stage.entreprise.nom}}</a>
                     </td>
                     <td>
-                        <a ui-sref="responsable-detail({id:stage.responsable.id})">{{stage.responsable.id}}</a>
+                        <a ui-sref="responsable-detail({id:stage.responsable.id})">{{stage.responsable.prenom + ' ' + stage.responsable.nom}}</a>
                     </td>
                     <td>
-                        <a ui-sref="enseignant-detail({id:stage.enseignant.id})">{{stage.enseignant.id}}</a>
+                        <a ui-sref="enseignant-detail({id:stage.enseignant.id})">{{stage.enseignant.prenom + ' ' + stage.enseignant.nom}}</a>
                     </td>
                     <td>
-                        <a ui-sref="filiere-detail({id:stage.filiere.id})">{{stage.filiere.id}}</a>
+                        <a ui-sref="filiere-detail({id:stage.filiere.id})">{{stage.filiere.nom}}</a>
                     </td>
                     <td>
-                        <a ui-sref="etudiant-detail({id:stage.etudiant.id})">{{stage.etudiant.id}}</a>
+                        <a ui-sref="etudiant-detail({id:stage.etudiant.id})">{{stage.etudiant.prenom + ' ' + stage.etudiant.nom + ' (' + stage.etudiant.numeroEtu + ')'}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -22,7 +22,7 @@
         </dd>
         <dt><span>Adresse</span></dt>
         <dd>
-            <a ui-sref="adresse-detail({id:vm.entreprise.adresse.id})">{{vm.entreprise.adresse.id}}</a>
+            <a ui-sref="adresse-detail({id:vm.entreprise.adresse.id})">{{vm.entreprise.adresse.numero + ' ' + vm.entreprise.adresse.libelle + ', ' + vm.entreprise.adresse.codePostal + ' ' + vm.entreprise.adresse.ville}}</a>
         </dd>
     </dl>
 

@@ -35,7 +35,7 @@
                     <td>{{entreprise.telephone}}</td>
                     <td>{{entreprise.mail}}</td>
                     <td>
-                        <a ui-sref="adresse-detail({id:entreprise.adresse.id})">{{entreprise.adresse.id}}</a>
+                        <a ui-sref="adresse-detail({id:entreprise.adresse.id})">{{entreprise.adresse.numero + ' ' + entreprise.adresse.libelle + ', ' + entreprise.adresse.codePostal + ' ' + entreprise.adresse.ville}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

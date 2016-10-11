@@ -28,7 +28,7 @@
 
         <div class="form-group">
             <label for="field_enseignant">Enseignant</label>
-            <select class="form-control" id="field_enseignant" name="enseignant" ng-model="vm.filiere.enseignant" ng-options="enseignant as enseignant.id for enseignant in vm.enseignants | orderBy:'id' track by enseignant.id" required>
+            <select class="form-control" id="field_enseignant" name="enseignant" ng-model="vm.filiere.enseignant" ng-options="enseignant as (enseignant.prenom + ' ' + enseignant.nom) for enseignant in vm.enseignants | orderBy:'id' track by enseignant.id" required>
                 <option value=""></option>
             </select>
         </div>

@@ -18,27 +18,27 @@
         </dd>
         <dt><span>Adresse</span></dt>
         <dd>
-            <a ui-sref="adresse-detail({id:vm.stage.adresse.id})">{{vm.stage.adresse.id}}</a>
+            <a ui-sref="adresse-detail({id:vm.stage.adresse.id})">{{vm.stage.adresse.numero + ' ' + vm.stage.adresse.libelle + ', ' + vm.stage.adresse.codePostal + ' ' + vm.stage.adresse.ville}}</a>
         </dd>
         <dt><span>Entreprise</span></dt>
         <dd>
-            <a ui-sref="entreprise-detail({id:vm.stage.entreprise.id})">{{vm.stage.entreprise.id}}</a>
+            <a ui-sref="entreprise-detail({id:vm.stage.entreprise.id})">{{vm.stage.entreprise.nom}}</a>
         </dd>
         <dt><span>Responsable</span></dt>
         <dd>
-            <a ui-sref="responsable-detail({id:vm.stage.responsable.id})">{{vm.stage.responsable.id}}</a>
+            <a ui-sref="responsable-detail({id:vm.stage.responsable.id})">{{vm.stage.responsable.prenom + ' ' + vm.stage.responsable.nom}}</a>
         </dd>
         <dt><span>Enseignant</span></dt>
         <dd>
-            <a ui-sref="enseignant-detail({id:vm.stage.enseignant.id})">{{vm.stage.enseignant.id}}</a>
+            <a ui-sref="enseignant-detail({id:vm.stage.enseignant.id})">{{vm.stage.enseignant.prenom + ' ' + vm.stage.enseignant.nom}}</a>
         </dd>
         <dt><span>Filiere</span></dt>
         <dd>
-            <a ui-sref="filiere-detail({id:vm.stage.filiere.id})">{{vm.stage.filiere.id}}</a>
+            <a ui-sref="filiere-detail({id:vm.stage.filiere.id})">{{vm.stage.filiere.nom}}</a>
         </dd>
         <dt><span>Etudiant</span></dt>
         <dd>
-            <a ui-sref="etudiant-detail({id:vm.stage.etudiant.id})">{{vm.stage.etudiant.id}}</a>
+            <a ui-sref="etudiant-detail({id:vm.stage.etudiant.id})">{{vm.stage.etudiant.prenom + ' ' + vm.stage.etudiant.nom + ' (' + vm.stage.etudiant.numeroEtu + ')'}}</a>
         </dd>
     </dl>
 
