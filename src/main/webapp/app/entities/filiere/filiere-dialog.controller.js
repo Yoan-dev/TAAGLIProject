@@ -22,7 +22,7 @@
             return Enseignant.get({id : vm.filiere.enseignant.id}).$promise;
         }).then(function(enseignant) {
             vm.enseignants.push(enseignant);
-        });/*
+        });*/
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
