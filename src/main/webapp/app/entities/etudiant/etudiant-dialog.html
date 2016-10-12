@@ -92,7 +92,7 @@
 
         <div class="form-group">
             <label for="field_filiere">Filiere</label>
-            <select class="form-control" id="field_filiere" name="filiere" ng-model="vm.etudiant.filiere" ng-options="filiere as filiere.nom for filiere in vm.filieres track by filiere.id" required>
+            <select class="form-control" id="field_filiere" name="filiere" ng-model="vm.etudiant.filiere" ng-options="filiere as filiere.nom for filiere in vm.filieres | orderBy:'nom' track by filiere.id" required>
                 <option value=""></option>
             </select>
         </div>

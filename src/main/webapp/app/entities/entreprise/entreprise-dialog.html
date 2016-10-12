@@ -64,7 +64,7 @@
 
         <div class="form-group">
             <label for="field_adresse">Adresse</label>
-            <select class="form-control" id="field_adresse" name="adresse" ng-model="vm.entreprise.adresse" ng-options="adresse as (adresse.numero + ' ' + adresse.libelle + ', ' + adresse.codePostal + ' ' + adresse.ville) for adresse in vm.adresses | orderBy:'id' track by adresse.id" required>
+            <select class="form-control" id="field_adresse" name="adresse" ng-model="vm.entreprise.adresse" ng-options="adresse as (adresse.numero + ' ' + adresse.libelle + ', ' + adresse.codePostal + ' ' + adresse.ville) for adresse in vm.adresses | orderBy:'libelle' track by adresse.id" required>
                 <option value=""></option>
             </select>
         </div>

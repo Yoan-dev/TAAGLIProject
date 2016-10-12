@@ -76,7 +76,7 @@
 
         <div class="form-group">
             <label for="field_entreprise">Entreprise</label>
-            <select class="form-control" id="field_entreprise" name="entreprise" ng-model="vm.responsable.entreprise" ng-options="entreprise as entreprise.nom for entreprise in vm.entreprises track by entreprise.id" required>
+            <select class="form-control" id="field_entreprise" name="entreprise" ng-model="vm.responsable.entreprise" ng-options="entreprise as entreprise.nom for entreprise in vm.entreprises | orderBy:'nom' track by entreprise.id" required>
                 <option value=""></option>
             </select>
         </div>
