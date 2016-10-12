@@ -31,7 +31,7 @@ import java.util.Optional;
 public class AdresseResource {
 
     private final Logger log = LoggerFactory.getLogger(AdresseResource.class);
-        
+
     @Inject
     private AdresseRepository adresseRepository;
 

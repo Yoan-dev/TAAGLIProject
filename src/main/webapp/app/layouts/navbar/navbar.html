@@ -20,7 +20,7 @@
                         <span class="hidden-sm">Home</span>
                     </a>
                 </li>
-                <li ui-sref-active="active">
+                <li ng-class="{active: vm.$state.includes('form')}" ng-switch-when="true">
                     <a ui-sref="form" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-pencil"></span>
                         <span class="hidden-sm">Form</span>

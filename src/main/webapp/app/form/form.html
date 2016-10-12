@@ -1,9 +1,14 @@
-<div ng-cloak>
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Trie étudiants</h1>
-            <select class="form-control" id="field_etudiant" name="etudiant" ng-model="vm.form.etudiant" ng-options="field for field in vm.fields" required>
+<div>
+    <h2>Envoi de mails</h2>
+    <div class="row" ng-repeat="i in fields.data track by $index">
+        <br />
+        <div class="col-md-6">
+            <select id="select{{$index}}" class="form-control" ng-model="i.ms" ng-options="field for field in fields.libelle" ng-change="change($index)" ng-show="display($index)">
             </select>
         </div>
+        <div class="col-md-6">
+            <input id="input{{$index}}" type="text" class="form-control" ng-model="i.mi" ng-show="i.si" />
+        </div>
     </div>
+    <button ng-click="go()">GO</button>
 </div>

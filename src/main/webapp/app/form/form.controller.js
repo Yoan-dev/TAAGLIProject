@@ -3,18 +3,40 @@
 
     angular
         .module('taagliProjectApp')
-        .controller('FormController', FormController);
+        .controller('FormController',   FormController);
 
-    FormController.$inject = ['$scope', 'Etudiant'];
+    FormController.$inject = ['$scope', 'Form'];
 
-    function FormController ($scope, Etudiant) {
+    function FormController ($scope, Form) {
         var vm = this;
 
-        vm.fields = ['Nom', 'Prénom', 'Numéro étudiant'];
-        vm.etudiants = Etudiant.query();
+        $scope.fields = {
+            libelle:["Adresse", "Entreprise", "Responsable", "Enseignant", "Filière"],
+            data:[
+                {ms:"", mi:"", si:false},
+                {ms:"", mi:"", si:false},
+                {ms:"", mi:"", si:false},
+                {ms:"", mi:"", si:false},
+                {ms:"", mi:"", si:false},
+            ]
+        };
 
-        vm.form.etudiant = "";
+        $scope.change = function(i){
+            $scope.fields.data[i].si = true;
+        }
 
-        
+        $scope.display = function(i){
+            if(i-1 < 0)
+                return true;
+            else
+                return $scope.fields.data[i-1].si;
+        }
+
+        $scope.go = function(){
+            Form.get({data:[1,2,3]}, function(res){
+                console.log(res);
+            });
+
+        }
     }
 })();

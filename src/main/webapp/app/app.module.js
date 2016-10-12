@@ -3,7 +3,7 @@
 
     angular
         .module('taagliProjectApp', [
-            'ngStorage', 
+            'ngStorage',
             'ngResource',
             'ngCookies',
             'ngAria',
