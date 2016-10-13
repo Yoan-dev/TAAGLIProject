@@ -11,9 +11,8 @@
         var vm = this;
 
         $scope.fields = {
-            libelle:["Adresse", "Entreprise", "Responsable", "Enseignant", "Filière"],
+            libelle:["Entreprise", "Responsable", "Enseignant", "Filière"],
             data:[
-                {ms:"", mi:"", si:false},
                 {ms:"", mi:"", si:false},
                 {ms:"", mi:"", si:false},
                 {ms:"", mi:"", si:false},
@@ -33,8 +32,21 @@
         }
 
         $scope.go = function(){
-            Form.get({}, function(res){
-                console.log(res);
+            var data = {};
+            $scope.fields.data.forEach(function(current){
+                var tmp = current.ms;
+                if(tmp != ""){
+                    data[tmp] = current.mi;
+                } else {
+                    data[tmp] = "*";
+                }
+            })
+            console.log("controller : ");
+            console.log(data);
+            Form.get({data:[data.Entreprise, data.Responsable, data.Enseignant, data.Filiere]}, function(res){
+                res.forEach(function(r){
+                    console.log(r)
+                });
             });
 
         }

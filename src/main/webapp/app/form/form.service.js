@@ -8,17 +8,9 @@
 
     function Form ($resource) {
         var resourceUrl =  '/api/form/:data';
-
+        console.log("service");
         return $resource(resourceUrl, {}, {
-        	'get': { 
-        		method:'GET',
-        		transformResponse: function(data) {
-        			if (data) {
-        				data = angular.fromJson(data);
-        			}
-        			return data;
-        		}
-        	}
+        	'get': {method:'GET', isArray:true}
         });
     }
 })();
