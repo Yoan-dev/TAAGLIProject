@@ -33,7 +33,7 @@
         }
 
         $scope.go = function(){
-            Form.get({data:[1,2,3]}, function(res){
+            Form.get({}, function(res){
                 console.log(res);
             });
 

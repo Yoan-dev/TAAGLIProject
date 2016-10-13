@@ -9,6 +9,16 @@
     function Form ($resource) {
         var resourceUrl =  '/api/form/:data';
 
-        return $resource(resourceUrl);
+        return $resource(resourceUrl, {}, {
+        	'get': { 
+        		method:'GET',
+        		transformResponse: function(data) {
+        			if (data) {
+        				data = angular.fromJson(data);
+        			}
+        			return data;
+        		}
+        	}
+        });
     }
 })();
