@@ -20,4 +20,8 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 	@Query(value = "SELECT e, fid FROM Etudiant e JOIN e.filiere fid WHERE e.nom = :etu AND fid.nom = :fil")
 	Page<Etudiant> queryTest (@Param("etu") String etu, @Param("fil") String fil, Pageable pageable);
 
+	@Query(value = "SELECT e FROM Etudiant e WHERE e.nom = :etu AND e.filiere.nom = :fil")
+	//@Query(value = "SELECT e, fid FROM Etudiant e JOIN e.filiere fid WHERE e.nom = :etu AND fid.nom = :fil")
+	List<Etudiant> queryTest2 (@Param("etu") String etu, @Param("fil") String fil, Pageable pageable);
+
 }

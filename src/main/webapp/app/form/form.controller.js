@@ -32,19 +32,15 @@
         }
 
         $scope.go = function(){
-            var data = {};
+            var data = {Entreprise:"*",Responsable:"*",Enseignant:"*",Filière:"*"};
             $scope.fields.data.forEach(function(current){
                 var tmp = current.ms;
                 if(tmp != ""){
                     data[tmp] = current.mi;
-                } else {
-                    data[tmp] = "*";
                 }
             })
-            console.log("controller : ");
             console.log(data);
-            //Form.get({data:[data.Entreprise, data.Responsable, data.Enseignant, data.Filiere]}, function(res){
-            Form.get({data:[data.Entreprise, data.Responsable]}, function(res){
+            Form.get({data:[data.Entreprise, data.Responsable, data.Enseignant, data.Filière]}, function(res){
                 res.forEach(function(r){
                     console.log(r)
                 });
