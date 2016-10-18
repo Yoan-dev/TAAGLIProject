@@ -38,7 +38,6 @@ public class FormResource {
     private final Logger log = LoggerFactory.getLogger(FormResource.class);
 
 	//@Inject
-	//private FiliereRepository filiereRepository;
 
 	@Inject
 	private EtudiantRepository etudiantRepository;
@@ -51,10 +50,11 @@ public class FormResource {
     public ResponseEntity<List<Etudiant>> requetePerso(@PathVariable String[] data, Pageable pageable) throws URISyntaxException {
         System.out.println("resource : " +data[0]);
         String ent = data[0];
-        String res = data[1];
-        String ens = data[2];
-        String fil = data[3];
-        Page<Etudiant> page = etudiantRepository.queryTest(ent, res, pageable);
+        /*String res = data[1];
+        String ens = data[2];*/
+        String fil = data[1];
+        //String fil = "Vigile";
+        Page<Etudiant> page = etudiantRepository.queryTest(ent, fil, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/form");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -43,7 +43,8 @@
             })
             console.log("controller : ");
             console.log(data);
-            Form.get({data:[data.Entreprise, data.Responsable, data.Enseignant, data.Filiere]}, function(res){
+            //Form.get({data:[data.Entreprise, data.Responsable, data.Enseignant, data.Filiere]}, function(res){
+            Form.get({data:[data.Entreprise, data.Responsable]}, function(res){
                 res.forEach(function(r){
                     console.log(r)
                 });
