@@ -51,30 +51,30 @@ public class FormResource {
     	System.out.println("Responsable: " + data[1]);
     	System.out.println("Enseignant: " + data[2]);
     	System.out.println("Filière: " + data[3]);
-    	
+
     	List<Long> stagesIds = null;
     	if (!data[0].equals("*")) {System.out.println("ENT");
-    		stagesIds = stageRepository.getStagesByEnt(data[0], pageable);
+    		stagesIds = stageRepository.getStagesByEnt(Long.parseLong(data[0]), pageable);
     		//
     	}
-    	
+
     	if (!data[1].equals("*")) {System.out.println("REP");
-    		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByRes(data[1], pageable);
-    		stagesIds = stageRepository.getStagesByRes(data[1], stagesIds, pageable);
+    		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByRes(Long.parseLong(data[1]), pageable);
+    		stagesIds = stageRepository.getStagesByRes(Long.parseLong(data[1]), stagesIds, pageable);
     	}
-    	
+
     	if (!data[2].equals("*")) {System.out.println("ENS");
-    		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByEns(data[2], pageable);
-    		stagesIds = stageRepository.getStagesByEns(data[2], stagesIds, pageable);
+    		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByEns(Long.parseLong(data[2]), pageable);
+    		stagesIds = stageRepository.getStagesByEns(Long.parseLong(data[2]), stagesIds, pageable);
     	}
-    	
+
     	if (!data[3].equals("*")) {System.out.println("FIL");
-    		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByFil(data[3], pageable);
-    		stagesIds = stageRepository.getStagesByFil(data[3], stagesIds, pageable);
+    		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByFil(Long.parseLong(data[3]), pageable);
+    		stagesIds = stageRepository.getStagesByFil(Long.parseLong(data[3]), stagesIds, pageable);
     	}
     	System.out.println(stagesIds.size());
     	Page<Etudiant> page = stageRepository.getEtuByStagesIds(stagesIds, pageable);
-    	
+
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/form");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

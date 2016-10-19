@@ -1,14 +1,33 @@
 <div>
     <h2>Envoi de mails</h2>
-    <div class="row" ng-repeat="i in fields.data track by $index">
+    <div class="row" ng-repeat="champ in champs" ng-if="$index > 0">
         <br />
         <div class="col-md-6">
-            <select id="select{{$index}}" class="form-control" ng-model="i.ms" ng-options="field for field in fields.libelle" ng-change="change($index)" ng-show="display($index)">
+            <select class="form-control" ng-model="models[$index-1].ms" ng-options="c for c in champs" ng-show="display($index-1)" ng-change="change($index-1)">
             </select>
         </div>
         <div class="col-md-6">
-            <input id="input{{$index}}" type="text" class="form-control" ng-model="i.mi" ng-show="i.si" />
+            <select class="form-control" ng-model="models[$index-1].mi" ng-options="data.id as data.nom for data in models[$index-1].data" ng-show="models[$index-1].ms!=champs[0]">
+            </select>
         </div>
     </div>
     <button ng-click="go()">GO</button>
+    <div class="row">
+        <div class="table-responsive">
+            <table class="jh-table table table-striped">
+                <thead>
+                    <tr>
+                        <th><span>Nom</span></th>
+                        <th><span>Mail</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in students">
+                        <td>{{student.nom}}</td>
+                        <td>{{student.mail}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
