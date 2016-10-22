@@ -74,11 +74,11 @@
                 if(tmp != $scope.champs[0]){
                     data[tmp] = current.mi;
                 }
-            })
-            console.log($scope.models);
-            console.log(data);
+            });
             Form.get({data:[data.Entreprise, data.Responsable, data.Enseignant, data.Filière]}, function(res){
                 $scope.students = [];
+                if(res.length == 0)
+                    $scope.students.push({nom:"Aucun résultat", mail:"Aucun résultat"});
                 res.forEach(function(current){
                     $scope.students.push({nom:current.nom+" "+current.prenom, mail:current.mail});
                 });
