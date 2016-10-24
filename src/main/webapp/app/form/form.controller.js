@@ -5,20 +5,25 @@
         .module('taagliProjectApp')
         .controller('FormController',   FormController);
 
-    FormController.$inject = ['$scope', 'Form', 'Entreprise', 'Responsable', 'Enseignant', 'Filiere'];
+    FormController.$inject = ['$scope', 'Form', 'Mailing', 'Entreprise', 'Responsable', 'Enseignant', 'Filiere'];
 
-    function FormController ($scope, Form, Entreprise, Responsable, Enseignant, Filiere) {
+    function FormController ($scope, Form, Mailing, Entreprise, Responsable, Enseignant, Filiere) {
         var vm = this;
 
         $scope.students = [];
-        $scope.champs = ["Selectionner un champ", "Entreprise", "Responsable", "Enseignant", "Filière"];
+        $scope.champs = ["Sélectionner un champ", "Entreprise", "Responsable", "Enseignant", "Filière"];
         $scope.models = [
             {ms:$scope.champs[0], mi:"", data:[]},
             {ms:$scope.champs[0], mi:"", data:[]},
             {ms:$scope.champs[0], mi:"", data:[]},
             {ms:$scope.champs[0], mi:"", data:[]}
         ];
-
+		
+		$scope.login = "";
+		$scope.password = "";
+		$scope.subject = "";
+		$scope.text = "";
+		
         $scope.display = function(i){
             if(i == 0)
                 return true;
@@ -85,5 +90,15 @@
             });
 
         }
+
+        $scope.sendEmail = function(){
+        	var mailingList = [$scope.login, $scope.password, $scope.subject, $scope.text];
+        	$scope.students.forEach(function(current){
+        		mailingList.push(current.mail);
+        	});
+        	console.log(mailingList);
+        	Mailing.get({data:mailingList}, function(res){});
+        }        
+        
     }
 })();
