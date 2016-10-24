@@ -18,12 +18,12 @@
             {ms:$scope.champs[0], mi:"", data:[]},
             {ms:$scope.champs[0], mi:"", data:[]}
         ];
-		
-		$scope.login = "";
+
+		$scope.toto = "";
 		$scope.password = "";
 		$scope.subject = "";
 		$scope.text = "";
-		
+
         $scope.display = function(i){
             if(i == 0)
                 return true;
@@ -97,8 +97,8 @@
         		mailingList.push(current.mail);
         	});
         	console.log(mailingList);
-        	Mailing.get({data:mailingList}, function(res){});
-        }        
-        
+        	//Mailing.get({data:mailingList}, function(res){});
+        }
+
     }
 })();
