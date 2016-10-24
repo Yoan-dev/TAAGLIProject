@@ -3,7 +3,7 @@
 
     angular
         .module('taagliProjectApp')
-        .controller('FormController',   FormController);
+        .controller('FormController', FormController);
 
     FormController.$inject = ['$scope', 'Form', 'Mailing', 'Entreprise', 'Responsable', 'Enseignant', 'Filiere'];
 
@@ -13,13 +13,14 @@
         $scope.students = [];
         $scope.champs = ["Sélectionner un champ", "Entreprise", "Responsable", "Enseignant", "Filière"];
         $scope.models = [
-            {ms:$scope.champs[0], mi:"", data:[]},
-            {ms:$scope.champs[0], mi:"", data:[]},
-            {ms:$scope.champs[0], mi:"", data:[]},
-            {ms:$scope.champs[0], mi:"", data:[]}
+            {ms:$scope.champs[0], mi:"", used:false, data:[]},
+            {ms:$scope.champs[0], mi:"", used:false, data:[]},
+            {ms:$scope.champs[0], mi:"", used:false, data:[]},
+            {ms:$scope.champs[0], mi:"", used:false, data:[]}
         ];
+        var used = [];
 
-		$scope.toto = "";
+		$scope.login = "";
 		$scope.password = "";
 		$scope.subject = "";
 		$scope.text = "";
@@ -31,7 +32,18 @@
                 return $scope.models[i-1].ms != $scope.champs[0];
         }
 
+        $scope.disabled = function(type){
+            return used.indexOf(type) !== -1;
+        }
+
         $scope.change = function(i){
+            used = [];
+            $scope.models.forEach(function(current){
+                var tmp = current.ms;
+                if(tmp != $scope.champs[0])
+                    used.push(tmp);
+            });
+
             switch($scope.models[i].ms){
                 case 'Entreprise':
                     Entreprise.query({}, function(res){

@@ -3,7 +3,10 @@
     <div class="row" ng-repeat="champ in champs" ng-if="$index > 0">
         <br />
         <div class="col-md-6">
-            <select class="form-control" ng-model="models[$index-1].ms" ng-options="c for c in champs" ng-show="display($index-1)" ng-change="change($index-1)">
+            <select class="form-control" ng-model="models[$index-1].ms" ng-show="display($index-1)" ng-change="change($index-1)">
+                <option ng-repeat="c in champs" ng-disabled="disabled(c)" value="{{c}}">
+                    {{c}}
+                </option>
             </select>
         </div>
         <div class="col-md-6">
