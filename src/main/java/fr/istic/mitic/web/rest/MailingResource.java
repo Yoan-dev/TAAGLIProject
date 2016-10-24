@@ -35,6 +35,11 @@ public class MailingResource {
     @Timed
     public void requetePerso(@PathVariable String[] data, Pageable pageable) {
     	
+    	System.out.println("TOTO");
+    	
+    	for (int i = 0; i < data.length; i++)
+    		System.out.println(data[i]);
+    	
     	String host = "smtp.gmail.com";
 
     	Properties props = new Properties();

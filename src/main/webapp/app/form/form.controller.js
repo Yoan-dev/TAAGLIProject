@@ -97,7 +97,7 @@
         		mailingList.push(current.mail);
         	});
         	console.log(mailingList);
-        	//Mailing.get({data:mailingList}, function(res){});
+        	Mailing.get({data:mailingList}, function(res){});
         }
 
     }
