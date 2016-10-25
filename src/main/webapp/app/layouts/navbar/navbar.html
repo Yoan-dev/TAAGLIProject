@@ -20,6 +20,12 @@
                         <span class="hidden-sm">Home</span>
                     </a>
                 </li>
+                <li ng-class="{active: vm.$state.includes('convention')}" ng-switch-when="true">
+                    <a ui-sref="convention" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        <span class="hidden-sm">Convention</span>
+                    </a>
+                </li>
                 <li ng-class="{active: vm.$state.includes('form')}" ng-switch-when="true">
                     <a ui-sref="form" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-pencil"></span>
