@@ -24,7 +24,7 @@
                 }
             }
         })
-        .state('convention.adresse.new', {
+        .state('convention.adresse', {
             parent: 'convention',
             url: '/newAdresse',
             data: {
@@ -55,7 +55,7 @@
                 });
             }]
         })
-        .state('convention.entreprise.new', {
+        .state('convention.entreprise', {
             parent: 'convention',
             url: '/newEntreprise',
             data: {
@@ -86,7 +86,7 @@
                 });
             }]
         })
-        .state('convention.responsable.new', {
+        .state('convention.responsable', {
             parent: 'convention',
             url: '/newResponsable',
             data: {
@@ -118,7 +118,7 @@
                 });
             }]
         })
-        .state('convention.enseignant.new', {
+        .state('convention.enseignant', {
             parent: 'convention',
             url: '/newEnseignant',
             data: {
@@ -149,7 +149,7 @@
                 });
             }]
         })
-        .state('convention.filiere.new', {
+        .state('convention.filiere', {
             parent: 'convention',
             url: '/newFiliere',
             data: {
@@ -177,7 +177,7 @@
                 });
             }]
         })
-        .state('convention.etudiant.new', {
+        .state('convention.etudiant', {
             parent: 'convention',
             url: '/newEtudiant',
             data: {
