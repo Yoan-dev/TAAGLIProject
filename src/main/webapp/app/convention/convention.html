@@ -1,8 +1,97 @@
 <div>
-	<button ui-sref="convention.adresse">New adresse</button>
+    <h2>Créer une convention</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <label class="control-label" for="intitule">Intitule</label>
+                    <input type="text" class="form-control" id="intitule" ng-model="intitule"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="date_debut">Date début</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="date_debut" ng-model="date_debut" uib-datepicker-popup="{{dateformat}}" is-open="datePickerOpenStatus.date_debut" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendar('date_debut')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="date_fin">Date fin</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="date_fin" ng-model="date_fin" uib-datepicker-popup="{{dateformat}}" is-open="datePickerOpenStatus.date_fin" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalendar('date_fin')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="adresse">Adresse</label>
+                    <div class="input-group">
+                        <select class="form-control" id="adresse" name="adresse" ng-model="adresse" ng-options="adresse as (adresse.numero + ' ' + adresse.libelle + ', ' + adresse.codePostal + ' ' + adresse.ville) for adresse in adresses | orderBy:'libelle' track by adresse.id" required>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ui-sref="convention.adresse"><i class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="entreprise">Entreprise</label>
+                    <div class="input-group">
+                        <select class="form-control" id="entreprise" name="entreprise" ng-model="entreprise" ng-options="entreprise as entreprise.nom for entreprise in entreprises | orderBy:'nom' track by entreprise.id" required>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ui-sref="convention.entreprise"><i class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="responsable">Responsable</label>
+                    <div class="input-group">
+                        <select class="form-control" id="responsable" name="responsable" ng-model="responsable" ng-options="responsable as (responsable.nom + ' ' + responsable.prenom) for responsable in responsables | orderBy:'nom' track by responsable.id" required>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ui-sref="convention.responsable"><i class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="enseignant">Enseignant</label>
+                    <div class="input-group">
+                        <select class="form-control" id="enseignant" name="enseignant" ng-model="enseignant" ng-options="enseignant as (enseignant.nom + ' ' + enseignant.prenom) for enseignant in enseignants | orderBy:'nom' track by enseignant.id" required>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ui-sref="convention.enseignant"><i class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="filiere">Filière</label>
+                    <div class="input-group">
+                        <select class="form-control" id="filiere" name="filiere" ng-model="filiere" ng-options="filiere as filiere.nom for filiere in filieres | orderBy:'nom' track by filiere.id" required>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ui-sref="convention.filiere"><i class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="etudiant">Etudiant</label>
+                    <div class="input-group">
+                        <select class="form-control" id="etudiant" name="etudiant" ng-model="etudiant" ng-options="etudiant as (etudiant.nom + ' ' + etudiant.prenom + ' - ' + etudiant.numeroEtu) for etudiant in etudiants | orderBy:'nom' track by etudiant.id" required>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" ui-sref="convention.etudiant"><i class="glyphicon glyphicon-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+	<!--<button ui-sref="convention.adresse">New adresse</button>
 	<button ui-sref="convention.entreprise">New entreprise</button>
 	<button ui-sref="convention.responsable">New responsable</button>
 	<button ui-sref="convention.enseignant">New enseignant</button>
 	<button ui-sref="convention.filiere">New filiere</button>
-	<button ui-sref="convention.etudiant">New etudiant</button>
+	<button ui-sref="convention.etudiant">New etudiant</button>-->
 </div>

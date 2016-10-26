@@ -53,6 +53,9 @@
                 }, function() {
                     $state.go('^');
                 });
+            }],
+            onExit: ['$rootScope', function($rootScope){
+                $rootScope.$broadcast('reloadAdresses');
             }]
         })
         .state('convention.entreprise', {
@@ -84,6 +87,9 @@
                 }, function() {
                     $state.go('^');
                 });
+            }],
+            onExit: ['$rootScope', function($rootScope){
+                $rootScope.$broadcast('reloadEntreprises');
             }]
         })
         .state('convention.responsable', {
@@ -116,6 +122,9 @@
                 }, function() {
                     $state.go('^');
                 });
+            }],
+            onExit: ['$rootScope', function($rootScope){
+                $rootScope.$broadcast('reloadResponsables');
             }]
         })
         .state('convention.enseignant', {
@@ -147,6 +156,9 @@
                 }, function() {
                     $state.go('^');
                 });
+            }],
+            onExit: ['$rootScope', function($rootScope){
+                $rootScope.$broadcast('reloadEnseignants');
             }]
         })
         .state('convention.filiere', {
@@ -175,6 +187,9 @@
                 }, function() {
                     $state.go('^');
                 });
+            }],
+            onExit: ['$rootScope', function($rootScope){
+                $rootScope.$broadcast('reloadFilieres');
             }]
         })
         .state('convention.etudiant', {
@@ -208,6 +223,9 @@
                 }, function() {
                     $state.go('^');
                 });
+            }],
+            onExit: ['$rootScope', function($rootScope){
+                $rootScope.$broadcast('reloadEtudiants');
             }]
         });
     }
