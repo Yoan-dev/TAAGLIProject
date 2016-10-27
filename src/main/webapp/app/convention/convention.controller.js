@@ -5,20 +5,14 @@
         .module('taagliProjectApp')
         .controller('ConventionController', ConventionController);
 
-    ConventionController.$inject = ['$scope', 'Adresse', 'Entreprise', 'Responsable', 'Enseignant', 'Filiere', 'Etudiant'];
+    ConventionController.$inject = ['$window', '$scope', 'Stage', 'Adresse', 'Entreprise', 'Responsable', 'Enseignant', 'Filiere', 'Etudiant'];
 
-    function ConventionController ($scope, Adresse, Entreprise, Responsable, Enseignant, Filiere, Etudiant) {
+    function ConventionController ($window, $scope, Stage, Adresse, Entreprise, Responsable, Enseignant, Filiere, Etudiant) {
         var vm = this;
 
-        $scope.intitule;
-        $scope.date_debut;
-        $scope.date_fin;
-        $scope.adresse;
-        $scope.entreprise;
-        $scope.responsable;
-        $scope.enseignant;
-        $scope.filiere;
-        $scope.etudiant;
+        $scope.convention;
+        $scope.success = false;
+        $scope.error = false;
 
         $scope.adresses = Adresse.query();
         $scope.entreprises = Entreprise.query();
@@ -28,8 +22,8 @@
         $scope.etudiants = Etudiant.query();
 
         $scope.datePickerOpenStatus = {};
-        $scope.datePickerOpenStatus.date_debut = false;
-        $scope.datePickerOpenStatus.date_fin = false;
+        $scope.datePickerOpenStatus.dateDebut = false;
+        $scope.datePickerOpenStatus.dateFin = false;
 
         $scope.openCalendar = function(date){
             $scope.datePickerOpenStatus[date] = true;
@@ -53,5 +47,24 @@
         $scope.$on('reloadEtudiants', function(){
             $scope.etudiants = Etudiant.query();
         });
+
+        $scope.createConvention = function(){
+            Stage.save($scope.convention, onSaveSuccess, onSaveError);
+        }
+
+        function onSaveSuccess (result) {
+            clean();
+            $scope.success = true;
+            $window.scrollTo(0, 0);
+        }
+
+        function onSaveError () {
+            $scope.error = true;
+            $window.scrollTo(0, 0);
+        }
+
+        function clean(){
+            $scope.convention = null;
+        }
 	}
 })();
