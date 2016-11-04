@@ -20,10 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 
-/**
- * Created by Yoan on 24/10/16.
- */
-
 @RestController
 @RequestMapping("/api")
 public class MailingResource {
@@ -35,7 +31,7 @@ public class MailingResource {
     @Timed
     public void requetePerso(@PathVariable String[] data, Pageable pageable) {
     	
-    	System.out.println("TOTO");
+    	System.out.println("LAST MAIL: " + data[data.length-1]);
     	
     	for (int i = 0; i < data.length; i++)
     		System.out.println(data[i]);
@@ -54,34 +50,32 @@ public class MailingResource {
                  protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(data[0], data[1]);
                 }
-        });
-        for (int i = 4; data.length > 3 && i < data.length; i++) {
-        	try {
-                // Create a default MimeMessage object.
-                Message message = new MimeMessage(session);
-
-                // Set From: header field of the header.
-                message.setFrom(new InternetAddress(data[0]));
-
-                // Set To: header field of the header.
-                message.setRecipients(Message.RecipientType.TO,
-                InternetAddress.parse(data[i]));
-
-                // Set Subject: header field
-                message.setSubject(data[2]);
-
-                // Now set the actual message
-                message.setText(data[3]);
-
-                // Send message
-                Transport.send(message);
-
-                System.out.println("Sent message successfully from " + data[0] + " to " + data[i]);
-
-             } catch (MessagingException e) {
-                   throw new RuntimeException(e);
-             }
+	        });
+        for (int i = 4; i < data.length; i++) {
+	       	try {
+	       		// Create a default MimeMessage object.
+	       		Message message = new MimeMessage(session);
+	           
+	       		// Set From: header field of the header.
+	       		message.setFrom(new InternetAddress(data[0]));
+	
+	            // Set To: header field of the header.	           
+	            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(data[i]));
+	
+	            // Set Subject: header field
+	            message.setSubject(data[2]);
+	
+	            // Now set the actual message
+	            message.setText(data[3]);
+	
+	            // Send message
+	            Transport.send(message);
+	
+	            System.out.println("Sent message successfully from " + data[0] + " to " + data[i]);
+	
+	        } catch (MessagingException e) {
+	              throw new RuntimeException(e);
+	        }
         }
-        
     }
 }

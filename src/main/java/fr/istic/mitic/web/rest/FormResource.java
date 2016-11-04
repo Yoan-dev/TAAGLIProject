@@ -1,7 +1,6 @@
 package fr.istic.mitic.web.rest;
 
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,14 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import fr.istic.mitic.domain.Etudiant;
-import fr.istic.mitic.domain.Stage;
 import fr.istic.mitic.repository.EtudiantRepository;
 import fr.istic.mitic.repository.StageRepository;
 import fr.istic.mitic.web.rest.util.PaginationUtil;
-
-/**
- * Created by greg on 12/10/16.
- */
 
 @RestController
 @RequestMapping("/api")
@@ -39,7 +33,6 @@ public class FormResource {
 
 	@Inject
 	private StageRepository stageRepository;
-	private EtudiantRepository etudiantRepository;
 
     @RequestMapping(value = "/form/{data}",
         method = RequestMethod.GET,
@@ -47,32 +40,26 @@ public class FormResource {
     @Timed
     public ResponseEntity<List<Etudiant>> requetePerso(@PathVariable String[] data, Pageable pageable) throws URISyntaxException {
 
-    	//System.out.println("Entreprise: " + data[0]);
-    	//System.out.println("Responsable: " + data[1]);
-    	//System.out.println("Enseignant: " + data[2]);
-    	//System.out.println("Filière: " + data[3]);
-
     	List<Long> stagesIds = null;
-    	if (!data[0].equals("*")) {//System.out.println("ENT");
+    	if (!data[0].equals("*")) {
     		stagesIds = stageRepository.getStagesByEnt(Long.parseLong(data[0]), pageable);
-    		//
     	}
 
-    	if (!data[1].equals("*")) {//System.out.println("REP");
+    	if (!data[1].equals("*")) {
     		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByRes(Long.parseLong(data[1]), pageable);
     		stagesIds = stageRepository.getStagesByRes(Long.parseLong(data[1]), stagesIds, pageable);
     	}
 
-    	if (!data[2].equals("*")) {//System.out.println("ENS");
+    	if (!data[2].equals("*")) {
     		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByEns(Long.parseLong(data[2]), pageable);
     		stagesIds = stageRepository.getStagesByEns(Long.parseLong(data[2]), stagesIds, pageable);
     	}
 
-    	if (!data[3].equals("*")) {//System.out.println("FIL");
+    	if (!data[3].equals("*")) {
     		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByFil(Long.parseLong(data[3]), pageable);
     		stagesIds = stageRepository.getStagesByFil(Long.parseLong(data[3]), stagesIds, pageable);
     	}
-    	//System.out.println(stagesIds.size());
+    	
     	Page<Etudiant> page = stageRepository.getEtuByStagesIds(stagesIds, pageable);
 
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/form");
