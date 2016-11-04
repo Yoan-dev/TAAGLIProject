@@ -58,7 +58,7 @@
                     Responsable.query({}, function(res){
                         $scope.models[i].data = [];
                         res.forEach(function(current){
-                            $scope.models[i].data.push({id:current.id,nom:current.nom});
+                            $scope.models[i].data.push({id:current.id,nom:current.nom+" "+current.prenom});
                         });
                         $scope.models[i].mi = $scope.models[i].data[0].id;
                     });
@@ -67,7 +67,7 @@
                     Enseignant.query({}, function(res){
                         $scope.models[i].data = [];
                         res.forEach(function(current){
-                            $scope.models[i].data.push({id:current.id,nom:current.nom});
+                            $scope.models[i].data.push({id:current.id,nom:current.nom+" "+current.prenom});
                         });
                         $scope.models[i].mi = $scope.models[i].data[0].id;
                     });
@@ -110,6 +110,14 @@
         	});
         	console.log(mailingList);
         	Mailing.get({data:mailingList}, function(res){});
+
+            $scope.students = [];
+            $scope.models = [
+                {ms:$scope.champs[0], mi:"", used:false, data:[]},
+                {ms:$scope.champs[0], mi:"", used:false, data:[]},
+                {ms:$scope.champs[0], mi:"", used:false, data:[]},
+                {ms:$scope.champs[0], mi:"", used:false, data:[]}
+            ];
         }
 
     }

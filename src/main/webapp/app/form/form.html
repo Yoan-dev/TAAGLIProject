@@ -14,24 +14,25 @@
             </select>
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <button type="button" class="btn btn-primary btn-block" ng-click="go()">GO</button>
         </div>
     </div>
-
+    <br />
     <div class="row" ng-show="students.length > 0 && students[0].nom != 'Aucun résultat' ">
 		<div class="col-md-4 col-md-offset-4">
 			 <div class="form-group">
 				 Mail: <input class="form-control" type="email" ng-model="login" /><br />
 				 Password: <input class="form-control" type="password" ng-model="password" /><br />
 				 Subject: <input class="form-control" type="text" ng-model="subject" /><br />
-                 Message: <textarea class="form-control" type="text" ng-model="text"></textarea>
+                 Message: <textarea class="form-control" type="text" ng-model="text"></textarea><br />
 				 <button type="button" class="btn btn-primary btn-block" ng-click="sendEmail()">Send Email</button><br />
 			 </div>
 		</div>
     </div>
-
+    <br />
     <div class="row" ng-if="students.length!=0">
         <div class="table-responsive">
             <table class="jh-table table table-striped">
