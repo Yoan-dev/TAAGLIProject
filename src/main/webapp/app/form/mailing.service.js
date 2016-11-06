@@ -10,7 +10,7 @@
         var resourceUrl =  '/api/mailing/:data';
         console.log("service");
         return $resource(resourceUrl, {}, {
-        	'post': {method:'POST'}
+        	'get': {method:'GET', isArray:true}
         });
     }
 })();

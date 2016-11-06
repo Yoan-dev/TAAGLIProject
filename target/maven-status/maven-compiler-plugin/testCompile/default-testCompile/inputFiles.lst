@@ -1,0 +1,11 @@
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/web/rest/AuditResourceIntTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/web/rest/TestUtil.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/security/SecurityUtilsUnitTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/web/rest/AccountResourceIntTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/web/rest/EntrepriseResourceIntTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/cucumber/stepdefs/StepDefs.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/web/rest/AdresseResourceIntTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/cucumber/stepdefs/UserStepDefs.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/web/rest/UserResourceIntTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/cucumber/CucumberTest.java
+/home/yoan/workspace/TAAGLIProject/src/test/java/fr/istic/mitic/service/UserServiceIntTest.java

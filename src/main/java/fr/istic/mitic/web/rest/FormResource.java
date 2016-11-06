@@ -40,28 +40,39 @@ public class FormResource {
     @Timed
     public ResponseEntity<List<Etudiant>> requetePerso(@PathVariable String[] data, Pageable pageable) throws URISyntaxException {
 
+    	// on veut récupérer une liste d'étudiants en fonction
+    	// des caractéristiques des stages qu'ils ont effectués
+    	// (données figées)
+    	
+    	// on filtre par entreprise
     	List<Long> stagesIds = null;
     	if (!data[0].equals("*")) {
     		stagesIds = stageRepository.getStagesByEnt(Long.parseLong(data[0]), pageable);
     	}
 
+    	// on filtre par responsable
     	if (!data[1].equals("*")) {
     		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByRes(Long.parseLong(data[1]), pageable);
     		stagesIds = stageRepository.getStagesByRes(Long.parseLong(data[1]), stagesIds, pageable);
     	}
 
+    	// on filtre par enseignant
     	if (!data[2].equals("*")) {
     		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByEns(Long.parseLong(data[2]), pageable);
     		stagesIds = stageRepository.getStagesByEns(Long.parseLong(data[2]), stagesIds, pageable);
     	}
 
+    	// on filtre par filière
     	if (!data[3].equals("*")) {
     		if (stagesIds == null || stagesIds.isEmpty()) stagesIds = stageRepository.getStagesByFil(Long.parseLong(data[3]), pageable);
     		stagesIds = stageRepository.getStagesByFil(Long.parseLong(data[3]), stagesIds, pageable);
     	}
     	
+    	// on récupère les étudiants correspondants
+    	// aux stages récupérés par filtrage successif
     	Page<Etudiant> page = stageRepository.getEtuByStagesIds(stagesIds, pageable);
 
+    	// on renvoi cette liste d'étudiants
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/form");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

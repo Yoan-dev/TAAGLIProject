@@ -28,8 +28,7 @@ public class MailingResource {
     private final Logger log = LoggerFactory.getLogger(FormResource.class);
 
     @RequestMapping(value = "/mailing/{data}",
-        method = RequestMethod.POST,
-        consumes = MediaType.APPLICATION_JSON_VALUE)
+        method = RequestMethod.GET)
     @Timed
     public void requetePerso(@PathVariable String[] data, Pageable pageable) {
 

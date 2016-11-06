@@ -1,0 +1,11 @@
+fr/istic/mitic/security/SecurityUtilsUnitTest.class
+fr/istic/mitic/cucumber/stepdefs/UserStepDefs.class
+fr/istic/mitic/web/rest/EntrepriseResourceIntTest.class
+fr/istic/mitic/cucumber/CucumberTest.class
+fr/istic/mitic/cucumber/stepdefs/StepDefs.class
+fr/istic/mitic/web/rest/AccountResourceIntTest.class
+fr/istic/mitic/web/rest/UserResourceIntTest.class
+fr/istic/mitic/web/rest/TestUtil.class
+fr/istic/mitic/service/UserServiceIntTest.class
+fr/istic/mitic/web/rest/AuditResourceIntTest.class
+fr/istic/mitic/web/rest/AdresseResourceIntTest.class

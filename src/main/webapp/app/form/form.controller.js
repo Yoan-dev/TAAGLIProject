@@ -111,7 +111,7 @@
         	// en réponse à un problème qui tronque la dernière chaine possédant un '.'
         	mailingList.push("end.end");
         	console.log(mailingList);
-        	Mailing.post({data:mailingList}, function(res){});
+        	Mailing.get({data:mailingList}, function(res){});
 
             used = [];
             $scope.students = [];
