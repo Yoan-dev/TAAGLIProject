@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="fr.istic.mitic" level="DEBUG"/>
+    <logger name="fr.istic.mitic" level="#logback.loglevel#"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>
@@ -54,7 +54,7 @@
         <resetJUL>true</resetJUL>
     </contextListener>
 
-    <root level="DEBUG">
+    <root level="#logback.loglevel#">
         <appender-ref ref="CONSOLE"/>
     </root>
 
