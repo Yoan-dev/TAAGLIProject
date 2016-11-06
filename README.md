@@ -12,15 +12,6 @@ Puis, ouvrez le projet dans l'IDE de votre choix.
 
 Le projet est prêt à être utilisé, démarrer via le main: "src/main/java/fr/istic/mitic/TaagliProjectApp.java"
 
-## Architecture en couches
-
-L'architecture en couche utilisée est la suivante:
-- Partie FrontEnd - AngularJS: présentation de la vue
-- Partie BackEnd - Spring MVC:
-    - API REST pour communiquer avec la vue
-    - JPA pour communiquer avec les données
-- Partie Données - JPQL: base de données relationelle
-
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
