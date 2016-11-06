@@ -9,9 +9,8 @@
     function Mailing ($resource) {
         var resourceUrl =  '/api/mailing/:data';
         console.log("service");
-        console.log();
         return $resource(resourceUrl, {}, {
-        	'get': {method:'GET', isArray:true}
+        	'post': {method:'POST'}
         });
     }
 })();

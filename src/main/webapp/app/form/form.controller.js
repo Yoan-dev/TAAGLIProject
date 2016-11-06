@@ -108,9 +108,12 @@
         	$scope.students.forEach(function(current){
         		mailingList.push(current.mail);
         	});
+        	// en réponse à un problème qui tronque la dernière chaine possédant un '.'
+        	mailingList.push("end.end");
         	console.log(mailingList);
-        	Mailing.get({data:mailingList}, function(res){});
+        	Mailing.post({data:mailingList}, function(res){});
 
+            used = [];
             $scope.students = [];
             $scope.models = [
                 {ms:$scope.champs[0], mi:"", used:false, data:[]},

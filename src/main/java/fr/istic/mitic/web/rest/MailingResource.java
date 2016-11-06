@@ -27,15 +27,17 @@ public class MailingResource {
     private final Logger log = LoggerFactory.getLogger(FormResource.class);
 
     @RequestMapping(value = "/mailing/{data}",
-        method = RequestMethod.GET)
+        method = RequestMethod.POST)
     @Timed
     public void requetePerso(@PathVariable String[] data, Pageable pageable) {
     	
-    	System.out.println("LAST MAIL: " + data[data.length-1]);
-    	
-    	for (int i = 0; i < data.length; i++)
-    		System.out.println(data[i]);
-    	
+    	/* Ici, on souhaiterait utiliser le serveur SMTP de l'université (univ-rennes1)
+    	 * cependant, il faut une autorisation pour permettre l'accès à l'adresse par
+    	 * des applications moins sécurisés.
+    	 * Nous avons donc décidé de faire nos tests avec gmail, qui permets une
+    	 * activation/désactivation de l'accès par des applications moins sécurisés
+    	 * très simple à réaliser
+    	 */
     	String host = "smtp.gmail.com";
 
     	Properties props = new Properties();
@@ -45,30 +47,30 @@ public class MailingResource {
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.ssl.trust", host);
     	
+        // création d'une session avec authentification
         Session session = Session.getInstance(props,
               new javax.mail.Authenticator() {
                  protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(data[0], data[1]);
                 }
 	        });
-        for (int i = 4; i < data.length; i++) {
+        
+        // pour chaque destinataire
+        for (int i = 4; i < data.length - 1; i++) {
 	       	try {
-	       		// Create a default MimeMessage object.
 	       		Message message = new MimeMessage(session);
-	           
-	       		// Set From: header field of the header.
 	       		message.setFrom(new InternetAddress(data[0]));
-	
-	            // Set To: header field of the header.	           
+	       		
+	       		// récupération du destinataire
 	            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(data[i]));
 	
-	            // Set Subject: header field
+	            // récupération du sujet
 	            message.setSubject(data[2]);
 	
-	            // Now set the actual message
+	            // récupération du message texte
 	            message.setText(data[3]);
 	
-	            // Send message
+	            // envoi
 	            Transport.send(message);
 	
 	            System.out.println("Sent message successfully from " + data[0] + " to " + data[i]);
