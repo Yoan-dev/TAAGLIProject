@@ -105,6 +105,22 @@ Main page styles
     background-size: contain;
 }
 
+.ur1 {
+    display: inline-block;
+    width: 420px;
+    height: 144px;
+    background: url("../images/ur1.png") no-repeat center top;
+    background-size: contain;
+}
+
+.istic {
+    display: inline-block;
+    width: 420px;
+    height: 150px;
+    background: url("../images/istic.png") no-repeat center top;
+    background-size: contain;
+}
+
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
